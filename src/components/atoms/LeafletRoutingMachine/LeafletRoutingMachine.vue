@@ -8,6 +8,8 @@
 import L from 'leaflet'
 import { IRouter, IGeocoder, LineOptions } from 'leaflet-routing-machine'
 import { findRealParent } from 'vue2-leaflet';
+import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
+
 
 const props = {
   visible: {
@@ -127,7 +129,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  @import '../../node_modules/leaflet-routing-machine/dist/leaflet-routing-machine.css';
-</style>
