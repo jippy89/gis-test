@@ -48,7 +48,7 @@ export default {
       return this.markers.length === 2
     },
     waypoints () {
-      if (is2Markers) {
+      if (this.is2Markers) {
         return [
           this.markers[0].position,
           this.markers[1].position
