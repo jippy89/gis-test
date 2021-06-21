@@ -1,1 +1,1 @@
-export { default } from './LeafletTileLayer.js'
+export { default } from './LeafletTileLayer.vue'
