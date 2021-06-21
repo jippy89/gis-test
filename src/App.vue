@@ -1,18 +1,28 @@
 <template>
   <div id="app">
-    Hello world
+    <Map class="app__map" />
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
+  components: {
+    Map: require('./components/atoms/LeafletMap').default
+  }
 };
 </script>
+
+<style lang="stylus">
+body
+  margin 0
+</style>
 
 <style lang="stylus">
 #app
   font-family Avenir, Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
+
+  height 100vh
 </style>
