@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    Hello world
+    <Map class="app__map"></Map>
   </div>
 </template>
 
 <script>
 export default {
   name: 'App',
+  components: {
+    Map: require('./components/atoms/LeafletMap').default,
+  },
 };
 </script>
 
@@ -15,4 +18,8 @@ export default {
   font-family Avenir, Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
+
+.app
+  &__map
+    height 100vh
 </style>
