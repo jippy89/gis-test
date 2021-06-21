@@ -1,14 +1,35 @@
 <template>
   <div id="app">
-    <Map class="app__map" />
+    <Map
+      :zoom="mapConfig.zoom"
+      :center="mapConfig.center"
+      class="app__map"
+    >
+      <TileLayer
+        :url="mapConfig.url"
+        :attribution="mapConfig.attribution"
+      />
+
+    </Map>
   </div>
 </template>
 
 <script>
+import { latLng } from "leaflet";
+
 export default {
   name: 'App',
   components: {
-    Map: require('./components/atoms/LeafletMap').default
+    Map: require('./components/atoms/LeafletMap').default,
+    TileLayer: require('./components/atoms/LeafletTileLayer').default
+  },
+  data () {
+    return {
+      mapConfig: {
+        zoom: 10,
+        center: latLng( -6.200000, 106.816666)
+      }
+    }
   }
 };
 </script>
