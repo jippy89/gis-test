@@ -17,6 +17,8 @@
       >
       </LMarker>
 
+      <Routing v-if="is2Markers" :waypoints="waypoints" />
+
     </Map>
   </div>
 </template>
@@ -29,7 +31,8 @@ export default {
   components: {
     Map: require('./components/atoms/LeafletMap').default,
     TileLayer: require('./components/atoms/LeafletTileLayer').default,
-    LMarker: require('./components/atoms/LeafletMarker').default
+    LMarker: require('./components/atoms/LeafletMarker').default,
+    Routing: require('./components/atoms/LeafletRoutingMachine').default
   },
   data () {
     return {
@@ -38,6 +41,20 @@ export default {
         center: latLng( -6.200000, 106.816666)
       },
       markers: []
+    }
+  },
+  computed: {
+    is2Markers () {
+      return this.markers.length === 2
+    },
+    waypoints () {
+      if (this.is2Markers) {
+        return [
+          this.markers[0].position,
+          this.markers[1].position
+        ]
+      }
+      return []
     }
   },
   methods: {
@@ -52,6 +69,8 @@ export default {
       this.markers.push({
         position
       })
+
+      console.log(this.markers)
     }
   }
 };
